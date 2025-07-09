@@ -4,20 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>am.martirosyan</groupId>
-    <artifactId>TutorstvoITIS</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>lab1604</module>
-        <module>decorator</module>
-        <module>IO</module>
-        <module>OOS</module>
-        <module>lab1306</module>
-        <module>lab2406</module>
-        <module>lab0107</module>
-        <module>lab0907</module>
-    </modules>
+    <artifactId>OOS</artifactId>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
