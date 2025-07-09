@@ -1,8 +1,6 @@
 package am.martirosyan.task1;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -98,7 +96,7 @@ public class Task1 {
     }
 
     public static String firstTask(List<Student> students,  List<Grade> grades, List<Attendance> attendances,
-                                   List<Course> courses) {
+                                   List<Course> courses) throws IOException {
         //Задание 1
         Map<String, Long> attendancesCount = new HashMap<>();
 
@@ -117,6 +115,16 @@ public class Task1 {
                 maxValueKey = course.name;
             }
         }
+
+        PrintWriter writer = new PrintWriter(new FileWriter("output.txt"));
+
+        writer.println(maxValueKey);
+        writer.close();
+
+        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("output"));
+        os.writeObject(maxValueKey);
+        os.close();
+
 
         return maxValueKey;
     }
@@ -162,6 +170,7 @@ public class Task1 {
             attendances.add(attendance);
         }
 
+        br.close();
         return attendances;
     }
 
@@ -184,6 +193,8 @@ public class Task1 {
 
             grades.add(grade);
         }
+
+        br.close();
         return grades;
     }
 
@@ -204,6 +215,7 @@ public class Task1 {
 
             courses.add(course);
         }
+        br.close();
         return courses;
     }
 }
