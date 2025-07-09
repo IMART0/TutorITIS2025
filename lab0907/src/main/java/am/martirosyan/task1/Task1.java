@@ -97,6 +97,30 @@ public class Task1 {
 
     }
 
+    public static String firstTask(List<Student> students,  List<Grade> grades, List<Attendance> attendances,
+                                   List<Course> courses) {
+        //Задание 1
+        Map<String, Long> attendancesCount = new HashMap<>();
+
+        long maxValue = 0;
+        String maxValueKey = "";
+
+        for (Course course : courses) {
+            long count = attendances.stream().filter(
+                    a -> a.courseId == course.id
+            ).count();
+
+            attendancesCount.put(course.name, count);
+
+            if (count > maxValue) {
+                maxValue = count;
+                maxValueKey = course.name;
+            }
+        }
+
+        return maxValueKey;
+    }
+
     public static List<Student> fileToStudent(String fileName) throws IOException {
         List<Student> students = new ArrayList<>();
 
